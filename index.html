@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的音乐风格播放器</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<!-- 沈楚滢-25216950606 -->
+<body>
+    <!-- 顶部导航栏 -->
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo">
+                <div>我的音乐</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主内容区域 -->
+    <main class="main-content">
+        <!-- 左侧内容区 -->
+        <div class="content-left">
+            <!-- 当前播放媒体 -->
+            <div class="current-media">
+                <div class="media-info">
+                    <h1 id="mediaTitle">歌曲/视频名称</h1>
+                    <p id="artistName">艺术家/创作者</p>
+                </div>
+                <div class="media-player-container">
+                    <!-- 视频播放器 -->
+                    <video id="video" class="media-player" controls style="display: none;">
+                        您的浏览器不支持 video 元素。
+                    </video>
+                    <!-- 音频播放器封面 -->
+                    <div id="audioCover" class="media-player album-cover">
+                        <img src="img/record0.jpg" alt="专辑封面" id="albumImg">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 歌曲列表 -->
+            <div class="song-list">
+                <div class="song-list-header">
+                    <h2>歌曲列表</h2>
+                    <span class="list-count">共 <span id="songCount">0</span> 首</span>
+                </div>
+                <table class="song-table">
+                    <thead>
+                        <tr>
+                            <th class="col-index">序号</th>
+                            <th class="col-title">标题</th>
+                            <th class="col-artist">艺术家</th>
+                            <th class="col-time">时长</th>
+                        </tr>
+                    </thead>
+                    <tbody id="playlistItems">
+                        <!-- 播放列表项将通过JavaScript动态生成 -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- 右侧边栏 -->
+        <div class="content-right">
+            <div class="related-content">
+                <h3>相关推荐</h3>
+                <!-- 相关推荐内容将通过JavaScript动态生成 -->
+            </div>
+        </div>
+    </main>
+
+    <!-- 底部播放控制栏 -->
+    <footer class="player-footer">
+        <!-- 当前播放信息 -->
+        <div class="now-playing">
+            <div class="now-playing-cover">
+                <img src="img/record0.jpg" alt="当前播放" id="nowPlayingCover">
+            </div>
+            <div class="now-playing-info">
+                <p id="nowPlayingTitle">歌曲名称</p>
+                <p id="nowPlayingArtist">艺术家</p>
+            </div>
+        </div>
+
+        <!-- 播放控制 -->
+        <div class="player-controls">
+            <!-- 进度条 -->
+            <div class="progress-container">
+                <span class="time" id="currentTime">00:00</span>
+                <div class="progress-bar">
+                    <div class="progress" id="progress"></div>
+                </div>
+                <span class="time" id="duration">00:00</span>
+            </div>
+
+            <!-- 控制按钮 -->
+            <div class="control-buttons">
+                <button class="control-btn mode-btn" id="modeBtn" title="播放模式">
+                    <img src="img/mode1.png" alt="循环播放">
+                </button>
+                <button class="control-btn prev-btn" id="prevBtn" title="上一曲">
+                    <img src="img/上一首.png" alt="上一曲">
+                </button>
+                <button class="control-btn play-btn" id="playBtn" title="播放/暂停">
+                    <img src="img/继续播放.png" alt="播放" id="playIcon">
+                </button>
+                <button class="control-btn next-btn" id="nextBtn" title="下一曲">
+                    <img src="img/下一首.png" alt="下一曲">
+                </button>
+            </div>
+        </div>
+
+        <!-- 音量控制 -->
+        <div class="volume-control">
+            <button class="control-btn volume-btn" id="volumeBtn" title="音量">
+                <img src="img/音量.png" alt="音量" id="volumeIcon">
+            </button>
+            <input type="range" class="volume-slider" id="volumeSlider" min="0" max="1" step="0.01" value="0.7">
+        </div>
+    </footer>
+
+    <!-- 音频元素 -->
+    <audio id="audio" preload="metadata">
+        您的浏览器不支持 audio 元素。
+    </audio>
+
+    <script src="js/player.js"></script>
+</body>
+
+</html>
